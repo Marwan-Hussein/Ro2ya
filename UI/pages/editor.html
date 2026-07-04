@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStudio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-lg h-16 w-full bg-surface-container-low border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<h2 class="font-h2 text-h2 font-bold text-on-surface">Gesture Control Systems</h2>
+<div class="h-6 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-xs text-primary-container font-bold">
+<span class="material-symbols-outlined text-[14px]">sensors</span>
+<span class="font-label-mono text-label-mono">Device Connected</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary-fixed-dim transition-colors">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary-fixed-dim transition-colors">help_outline</span>
+<button class="bg-primary-container text-on-primary-container font-button text-button px-md py-sm rounded-lg hover:opacity-90 active:scale-95 transition-all">
+                    Deploy Profile
+                </button>
+</div>
+</header>
+<!-- Editor Canvas -->
+<div class="flex-1 overflow-y-auto p-lg">
+<div class="max-w-container_max_width mx-auto">
+<!-- Page Header -->
+<div class="flex items-end justify-between mb-lg">
+<div>
+<div class="flex items-center gap-sm text-primary-fixed-dim mb-xs">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest">Active Workspace</span>
+</div>
+<h3 class="font-h1 text-h1">Swipe Left Activation</h3>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-outline-variant rounded-lg font-button text-button hover:bg-surface-variant transition-colors">Discard</button>
+<button class="px-md py-sm border border-primary-container text-primary-container rounded-lg font-button text-button hover:bg-primary-container hover:text-on-primary transition-colors">Save Gesture</button>
+</div>
+</div>
+<!-- 2-Column Layout -->
+<div class="grid grid-cols-12 gap-lg h-full">
+<!-- Left Column: Configuration -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-lg">
+<!-- Gesture Info Card -->
+<div class="bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-high flex justify-between items-center">
+<span class="font-button text-on-surface">Gesture Metadata</span>
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div class="p-md space-y-md">
+<div class="space-y-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant">GESTURE NAME</label>
+<input class="w-full bg-surface border border-outline-variant rounded-lg px-md py-sm text-on-surface focus:border-primary-container outline-none transition-colors" type="text" value="Swipe Left Activation">
+</div>
+<div class="space-y-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant">DESCRIPTION</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-lg px-md py-sm text-on-surface focus:border-primary-container outline-none transition-colors resize-none" rows="2">Standard horizontal swipe gesture using the primary hand to trigger navigation back events.</textarea>
+</div>
+<div class="space-y-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant">INPUT SOURCE</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-md py-sm text-on-surface focus:border-primary-container outline-none appearance-none cursor-pointer">
+<option>Primary Hand (Optical Tracking)</option>
+<option>Secondary Hand (Optical Tracking)</option>
+<option>Head Positioning (IMU)</option>
+<option>Eye Gaze (Neural Mesh)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Detection Settings Card -->
+<div class="bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-high flex justify-between items-center">
+<span class="font-button text-on-surface">Detection Parameters</span>
+<span class="material-symbols-outlined text-on-surface-variant">tune</span>
+</div>
+<div class="p-md space-y-lg">
+<!-- Slider Group 1 -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-mono text-label-mono text-on-surface-variant">SENSITIVITY</label>
+<span class="font-label-mono text-primary-container">82%</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer slider-thumb-custom" max="100" min="0" type="range" value="82">
+</div>
+<!-- Slider Group 2 -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-mono text-label-mono text-on-surface-variant">CONFIDENCE THRESHOLD</label>
+<span class="font-label-mono text-primary-container">0.94</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer slider-thumb-custom" max="100" min="0" type="range" value="94">
+</div>
+<!-- Slider Group 3 -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-mono text-label-mono text-on-surface-variant">ACTIVATION DELAY</label>
+<span class="font-label-mono text-primary-container">120ms</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer slider-thumb-custom" max="1000" min="0" type="range" value="120">
+</div>
+<!-- Slider Group 4 -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-mono text-label-mono text-on-surface-variant">COOLDOWN</label>
+<span class="font-label-mono text-primary-container">450ms</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer slider-thumb-custom" max="2000" min="0" type="range" value="450">
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visualization & Test Area -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-lg">
+<!-- Visualization Area -->
+<div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl aspect-video overflow-hidden group">
+
+<!-- 3D Overlay Simulation -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-3/4 h-3/4 relative">
+<!-- Simplified Skeleton Placeholder -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-primary-container border-dashed rounded-full animate-pulse opacity-50"></div>
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-4 h-4 bg-primary-container rounded-full blur-sm"></div>
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary-container rounded-full blur-sm"></div>
+<div class="absolute top-1/2 left-2/3 -translate-y-1/2 w-4 h-4 bg-primary-container rounded-full blur-sm"></div>
+<div class="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary-container rounded-full blur-sm"></div>
+<!-- Interaction Trace -->
+<svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+<path d="M 80 50 Q 50 50 20 50" fill="none" stroke="#00D4FF" stroke-dasharray="2,2" stroke-width="0.5">
+<animate attributeName="stroke-dashoffset" dur="1s" from="10" repeatCount="indefinite" to="0"></animate>
+</path>
+</svg>
+</div>
+</div>
+<!-- Header Overlay -->
+<div class="absolute top-md left-md flex items-center gap-sm bg-surface/80 backdrop-blur-md border border-outline-variant px-sm py-xs rounded">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="font-label-mono text-label-mono">LIVE PREVIEW: SKELETON_01</span>
+</div>
+<!-- Bottom Overlay Statistics -->
+<div class="absolute bottom-md left-md right-md flex justify-between items-end">
+<div class="space-y-xs">
+<div class="bg-surface/80 backdrop-blur-md border border-outline-variant p-sm rounded flex flex-col">
+<span class="font-label-mono text-[9px] text-on-surface-variant">LATENCY</span>
+<span class="font-label-mono text-primary-container">12ms</span>
+</div>
+<div class="bg-surface/80 backdrop-blur-md border border-outline-variant p-sm rounded flex flex-col">
+<span class="font-label-mono text-[9px] text-on-surface-variant">SAMPLES</span>
+<span class="font-label-mono text-on-surface">1,244/sec</span>
+</div>
+</div>
+<div class="bg-surface/80 backdrop-blur-md border border-outline-variant p-sm rounded flex items-center gap-md">
+<div class="flex flex-col">
+<span class="font-label-mono text-[9px] text-on-surface-variant">ROTATION (X,Y,Z)</span>
+<span class="font-label-mono text-on-surface">14.2, -5.1, 0.0</span>
+</div>
+<span class="material-symbols-outlined text-primary-container">view_in_ar</span>
+</div>
+</div>
+</div>
+<!-- Test Area -->
+<div class="bg-surface-container border border-outline-variant rounded-xl overflow-hidden flex-1">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-high flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="font-button text-on-surface">Sandbox Test Area</span>
+<span class="px-xs py-[1px] bg-primary-fixed-dim/20 text-primary-fixed-dim text-[9px] font-label-mono rounded uppercase">Real-time</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">restart_alt</span>
+</button>
+</div>
+<div class="p-lg flex flex-col items-center justify-center min-h-[160px] text-center">
+<div class="w-full max-w-md space-y-md">
+<div class="space-y-xs text-left">
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-mono text-on-surface-variant">DETECTION CONFIDENCE</span>
+<span class="font-label-mono text-primary-container font-bold">94%</span>
+</div>
+<div class="w-full h-3 bg-surface rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-primary-container transition-all duration-300 shadow-[0_0_10px_rgba(0,212,255,0.5)]" id="confidence-bar" style="width: 95%;"></div>
+</div>
+</div>
+<div class="pt-md">
+<div class="inline-flex items-center gap-md px-lg py-md border border-primary-container/40 bg-primary-container/10 rounded-full transition-all duration-300" id="status-chip">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="font-button text-on-surface text-base">Gesture Detected: <span class="font-bold text-primary-container">SWIPE_LEFT</span></span>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant max-w-xs mx-auto">
+                                        Perform the gesture in front of your sensor to see real-time classification and confidence mapping.
+                                    </p>
+</div>
+</div>
+</div>
+<!-- Action Chips -->
+<div class="flex flex-wrap gap-sm">
+<div class="px-md py-sm border border-outline-variant rounded-md flex items-center gap-sm">
+<span class="font-label-mono text-label-mono text-on-surface-variant">MAPPED ACTION:</span>
+<span class="font-label-mono text-on-surface bg-surface-variant px-sm py-[2px] rounded border border-outline-variant">[CTRL] + [ALT] + [LEFT]</span>
+</div>
+<div class="px-md py-sm border border-outline-variant rounded-md flex items-center gap-sm">
+<span class="font-label-mono text-label-mono text-on-surface-variant">TRIGGER:</span>
+<span class="font-label-mono text-on-surface bg-surface-variant px-sm py-[2px] rounded border border-outline-variant">ON_SUCCESS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body>
+</html>

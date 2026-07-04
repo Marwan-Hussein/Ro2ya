@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GestureStudio | AI Gesture Control Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- Sidebar Navigation Rail -->
+<aside class="w-sidebar_width h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface flex flex-col h-full py-lg z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-h2 text-h2 font-semibold text-primary-container">GestureStudio</h1>
+<p class="font-label-mono text-label-mono text-on-surface-variant">v2.4.0</p>
+</div>
+<nav class="flex-1 space-y-xs overflow-y-auto">
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#bindings">
+<span class="material-symbols-outlined">keyboard_command_key</span>
+<span>Bindings</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#editor">
+<span class="material-symbols-outlined">edit</span>
+<span>Editor</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#library">
+<span class="material-symbols-outlined">library_books</span>
+<span>Library</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#calibration">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span>Calibration</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#profiles">
+<span class="material-symbols-outlined">person_outline</span>
+<span>Profiles</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#analytics">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant font-body-md px-lg py-md hover:bg-surface-variant transition-colors nav-link" href="#settings">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-lg py-md mt-auto border-t border-outline-variant flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a software engineer specialized in human-computer interaction, wearing a clean dark uniform, set against a blurred high-tech workspace background with subtle blue and gray tones consistent with the GestureStudio brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbvO88XXsGlkxRBIH1qEgxkxK2_CNf_mB05E9fV_sUb5HDvMBVNkLhouSTXjbqLE0EDDJM-7oj0g_Z_5GUSYwcpRBbQZuRWBumbhAyeHisS6HzpXln21jwG5iEnHshs5GXqYyw_w_vXtVaA8bFAlljdsFrvro1ETKE3VnP3GdwTG1BG2G9Sz6TxXCsu8_pjfZzeIm608HeCwK04_3-dGpXzwgY5AJe4tYxLcRJ0JkRyad-3ydB-L3sOeRgOzgp9XJK5ayqAGBOl3Hq">
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold">User Profile</span>
+<span class="font-label-mono text-[10px] text-primary-container">PRO LICENSE</span>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 left-sidebar_width right-0 h-16 bg-surface-container-low border-b border-outline-variant flex justify-between items-center px-lg z-40">
+<div class="flex items-center gap-lg">
+<h2 class="font-h2 text-h2 font-bold text-on-surface">Gesture Control Systems</h2>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-dim tonal-border rounded-lg pl-10 pr-4 py-1.5 text-body-sm font-body-sm w-64 focus:outline-none focus:border-primary-container transition-all" placeholder="Search configs..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm bg-surface-container-high px-sm py-1 rounded border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-on-surface">Device Connected</span>
+</div>
+<div class="flex gap-md">
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors"><span class="material-symbols-outlined">help_outline</span></button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main id="app-content" class="ml-sidebar_width pt-16 h-screen bg-background flex flex-col">
+<iframe id="content-frame" class="w-full flex-1 border-none" src="pages/dashboard.html" title="Main Content"></iframe>
+</main>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulate live accuracy updates
+            const accuracyEl = document.querySelector('.font-h1.text-h1.text-primary-container');
+            setInterval(() => {
+                const randomAcc = (98 + Math.random() * 1.5).toFixed(1);
+                if (accuracyEl) accuracyEl.innerHTML = `${randomAcc}<span class="text-h2">%</span>`;
+            }, 3000);
+
+            // Button active state simulation
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+<script src="js/app.js"></script>
+</body></html>
+
+<!-- Dashboard -->

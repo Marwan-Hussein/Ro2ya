@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStudio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- Top AppBar (TopAppBar JSON implementation) -->
+<header class="h-16 flex justify-between items-center px-lg w-full bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant dark:border-outline-variant sticky top-0 z-40">
+<div class="flex items-center">
+<h2 class="font-h2 text-h2 font-bold text-on-surface dark:text-on-surface">Gesture Control Systems</h2>
+<div class="ml-lg h-8 px-md bg-secondary-container/30 border border-outline-variant rounded-full flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-on-surface">Device Connected</span>
+</div>
+</div>
+<div class="flex items-center space-x-lg">
+<div class="flex items-center space-x-md text-on-surface-variant">
+<button class="material-symbols-outlined hover:text-primary-fixed-dim transition-colors text-[20px]">notifications</button>
+<button class="material-symbols-outlined hover:text-primary-fixed-dim transition-colors text-[20px]">help_outline</button>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="flex items-center space-x-sm">
+<span class="font-body-sm text-on-surface-variant">Active:</span>
+<span class="font-label-mono text-primary-container">PRO_GAMER_V3</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Page Content -->
+<div class="flex-1 overflow-y-auto p-lg">
+<div class="max-w-container_max_width mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-md">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface mb-xs">Profile Management</h1>
+<p class="text-on-surface-variant font-body-md max-w-xl">Configure and switch between specialized gesture mappings for different environments and professional workflows.</p>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-surface-dim border border-outline-variant rounded-lg pl-10 pr-md py-sm w-64 font-body-md focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none" placeholder="Search profiles..." type="text">
+</div>
+<button class="flex items-center space-x-sm bg-primary-container hover:bg-primary-fixed-dim text-on-primary py-sm px-lg rounded-lg font-button transition-all transform active:scale-95 shadow-lg shadow-primary-container/10">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Add Profile</span>
+</button>
+</div>
+</div>
+<!-- Profiles Bento/Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Profile Card: Default (Active) -->
+<div class="group relative bg-surface-container p-lg rounded-xl border border-primary-container ring-1 ring-primary-container/20 transition-all hover:bg-surface-container-high">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 border border-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex items-center space-x-1 px-sm py-xs bg-primary-container text-on-primary-container rounded font-label-mono text-[9px] font-bold">
+<span class="material-symbols-outlined text-[10px]">check_circle</span>
+<span>ACTIVE</span>
+</div>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">Default</h3>
+<p class="font-body-md text-on-surface-variant mb-lg h-10 line-clamp-2">Standard gesture set for OS navigation, window management, and basic media controls.</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-outline">LAST MODIFIED</span>
+<span class="font-label-mono text-on-surface">Oct 24, 2023</span>
+</div>
+<div class="flex space-x-2">
+<button class="p-xs text-on-surface-variant hover:text-primary-container transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary-container transition-colors" title="Export">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Profile Card: Gaming -->
+<div class="group relative bg-surface-container-low p-lg rounded-xl border border-outline-variant transition-all hover:border-outline hover:bg-surface-container">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-lg bg-surface-variant border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">sports_esports</span>
+</div>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">Gaming</h3>
+<p class="font-body-md text-on-surface-variant mb-lg h-10 line-clamp-2">Low-latency trigger mapping for RTS and RPG macro execution. Optimized for high-frequency input.</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-outline">LAST MODIFIED</span>
+<span class="font-label-mono text-on-surface">Jan 12, 2024</span>
+</div>
+<div class="flex space-x-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-md py-xs bg-surface-variant border border-outline-variant hover:border-primary-container text-on-surface rounded font-button text-[11px] transition-all">Activate</button>
+<button class="p-xs text-error hover:bg-error-container/20 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Profile Card: Productivity -->
+<div class="group relative bg-surface-container-low p-lg rounded-xl border border-outline-variant transition-all hover:border-outline hover:bg-surface-container">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-lg bg-surface-variant border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">terminal</span>
+</div>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">Productivity</h3>
+<p class="font-body-md text-on-surface-variant mb-lg h-10 line-clamp-2">Custom bindings for VS Code, Figma, and Slack. Features rapid workspace switching gestures.</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-outline">LAST MODIFIED</span>
+<span class="font-label-mono text-on-surface">Dec 05, 2023</span>
+</div>
+<div class="flex space-x-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-md py-xs bg-surface-variant border border-outline-variant hover:border-primary-container text-on-surface rounded font-button text-[11px] transition-all">Activate</button>
+<button class="p-xs text-error hover:bg-error-container/20 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Profile Card: Presentation -->
+<div class="group relative bg-surface-container-low p-lg rounded-xl border border-outline-variant transition-all hover:border-outline hover:bg-surface-container">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-lg bg-surface-variant border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">present_to_all</span>
+</div>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">Presentation</h3>
+<p class="font-body-md text-on-surface-variant mb-lg h-10 line-clamp-2">Air-gestures for slide control, virtual laser pointers, and spotlight emphasis during live demos.</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-outline">LAST MODIFIED</span>
+<span class="font-label-mono text-on-surface">Feb 18, 2024</span>
+</div>
+<div class="flex space-x-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-md py-xs bg-surface-variant border border-outline-variant hover:border-primary-container text-on-surface rounded font-button text-[11px] transition-all">Activate</button>
+<button class="p-xs text-error hover:bg-error-container/20 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Profile Card: Accessibility -->
+<div class="group relative bg-surface-container-low p-lg rounded-xl border border-outline-variant transition-all hover:border-outline hover:bg-surface-container">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-lg bg-surface-variant border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">accessibility_new</span>
+</div>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface mb-xs">Accessibility</h3>
+<p class="font-body-md text-on-surface-variant mb-lg h-10 line-clamp-2">High-tolerance movement sensing for users with limited motor control. Simplified confirmation gestures.</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-outline">LAST MODIFIED</span>
+<span class="font-label-mono text-on-surface">Mar 02, 2024</span>
+</div>
+<div class="flex space-x-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-md py-xs bg-surface-variant border border-outline-variant hover:border-primary-container text-on-surface rounded font-button text-[11px] transition-all">Activate</button>
+<button class="p-xs text-error hover:bg-error-container/20 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- New Profile Placeholder -->
+<button class="group relative bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center text-center transition-all hover:bg-surface-container-low hover:border-primary-container/40">
+<div class="w-12 h-12 rounded-full bg-outline-variant/20 flex items-center justify-center mb-md group-hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container">add</span>
+</div>
+<p class="font-h2 text-h2 text-on-surface-variant group-hover:text-on-surface transition-colors">Create New Profile</p>
+<p class="font-body-sm text-outline mt-xs">Start from a blank template or clone an existing set.</p>
+</button>
+</div>
+<!-- Usage Stats Section (Bonus UI Polish) -->
+<div class="mt-xl bg-surface-container-low rounded-xl border border-outline-variant p-lg overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-full opacity-10 pointer-events-none">
+
+</div>
+<div class="relative z-10">
+<h4 class="font-label-mono text-label-mono text-primary-container mb-md">CLOUD SYNC STATUS</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-lg">
+<div>
+<p class="font-h2 text-h1 text-on-surface">12</p>
+<p class="font-body-sm text-on-surface-variant">Total Profiles</p>
+</div>
+<div>
+<p class="font-h2 text-h1 text-on-surface">4.2GB</p>
+<p class="font-body-sm text-on-surface-variant">Cloud Storage</p>
+</div>
+<div>
+<p class="font-h2 text-h1 text-on-surface">84%</p>
+<p class="font-body-sm text-on-surface-variant">Sync Progress</p>
+</div>
+<div class="flex items-center">
+<button class="px-md py-sm border border-outline-variant rounded-lg font-button text-on-surface hover:bg-surface-variant transition-colors w-full">
+                                        View Cloud Manager
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body>
+</html>
