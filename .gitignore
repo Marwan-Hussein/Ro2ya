@@ -1,2 +1,13 @@
 session01.excalidraw
-session01.excalidraw
+
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+.venv/
+env/
+venv/
+
+.DS_Store
+Thumbs.db
+.vscode/

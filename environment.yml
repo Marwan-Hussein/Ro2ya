@@ -1,0 +1,13 @@
+name: hand_gesture
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - mediapipe==0.10.21
+      - opencv-contrib-python==4.11.0.86
+      - pandas==3.0.3
+      - numpy==1.26.4
+      - ipykernel==7.3.0
+      - jupyter==1.1.1
