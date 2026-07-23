@@ -1,0 +1,10 @@
+========================================
+           PC SPECIFICATIONS            
+========================================
+OS:           Windows 11 (Version: 10.0.26100)
+Architecture: AMD64
+CPU:          AMD Ryzen 5 PRO 2500U
+RAM:          14.93 GB
+GPU(s):
+  - AMD Radeon(TM) Vega 8 Graphics
+========================================

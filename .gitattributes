@@ -1,2 +1,40 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ============================================================================
+# PYTHON - Enforce Linux-style line endings (LF)
+# ============================================================================
+# .py files should always use LF line endings
+# This prevents Git from changing line endings in Python scripts
+*.py text=lf
+
+# ============================================================================
+# DOCX - Critical for preserving formatting
+# ============================================================================
+# .docx files contain XML, which should NOT have line endings changed.
+# Changing line endings corrupts the DOCX structure.
+*.docx text=binary
+
+# Also mark other Office/XML formats as binary
+*.doc text=binary
+*.xlsx text=binary
+*.xls text=binary
+*.pptx text=binary
+*.ppt text=binary
+*.xml text=binary
+*.json text=binary
+*.html text=binary
+*.css text=binary
+
+# ============================================================================
+# IMAGES & MEDIA - Must be treated as binary
+# ============================================================================
+*.jpg text=binary
+*.jpeg text=binary
+*.png text=binary
+*.gif text=binary
+*.ico text=binary
+*.svg text=binary
+*.webp text=binary
+*.mp4 text=binary
+*.mp3 text=binary
+*.wav text=binary
+*.mov text=binary
+*.pdf text=binary
