@@ -32,7 +32,8 @@
 		<ApplicationTitle>Ro2ya</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.ro2ya</ApplicationId>
+		<ApplicationId>com.ro2ya.desktop</ApplicationId>
+
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -50,11 +51,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\ro2ya.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#17171a" />
-
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#17171a" BaseSize="128,128" />
-
+		<MauiIcon Include="Resources\AppIcon\ro2ya.svg" Color="#17171a" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<!-- Custom Fonts -->
