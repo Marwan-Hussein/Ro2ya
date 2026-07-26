@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStudio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- Category Sidebar (Main Content 1) -->
+<aside class="w-48 flex-shrink-0 flex flex-col gap-sm">
+<p class="font-label-mono text-label-mono text-outline px-sm uppercase mb-xs">Categories</p>
+<button class="flex items-center justify-between px-md py-sm rounded-lg bg-secondary-container text-primary-container font-semibold group transition-all">
+<span>Mouse</span>
+<span class="text-label-mono bg-surface-container py-[1px] px-1.5 rounded-full text-on-primary-container">12</span>
+</button>
+<button class="flex items-center justify-between px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant transition-all text-left">
+<span>Navigation</span>
+</button>
+<button class="flex items-center justify-between px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant transition-all text-left">
+<span>Scrolling</span>
+</button>
+<button class="flex items-center justify-between px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant transition-all text-left">
+<span>System</span>
+</button>
+<button class="flex items-center justify-between px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant transition-all text-left">
+<span>Media</span>
+</button>
+<button class="flex items-center justify-between px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant transition-all text-left">
+<span>Display</span>
+</button>
+<div class="mt-xl p-md bg-surface-container rounded-xl border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl">lightbulb</span>
+</div>
+<p class="font-button text-on-surface mb-xs">Custom Script</p>
+<p class="font-body-sm text-on-surface-variant mb-md">Can't find an action? Create your own macro.</p>
+<button class="w-full py-2 border border-primary-container text-primary-container rounded-lg font-button hover:bg-primary-container hover:text-on-primary transition-all">
+                    Open Scripting
+                </button>
+</div>
+</aside>
+<!-- Grid of Action Cards (Main Content 2) -->
+<section class="flex-1">
+<div class="flex items-center justify-between mb-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline">mouse</span>
+<h3 class="font-h2 text-h2 font-semibold">Mouse Actions</h3>
+</div>
+<div class="flex gap-sm">
+<button class="px-sm py-1 rounded border border-outline-variant text-label-mono font-label-mono text-on-surface-variant hover:bg-surface-variant transition-colors">GRID</button>
+<button class="px-sm py-1 rounded border border-outline-variant text-label-mono font-label-mono text-on-surface-variant hover:bg-surface-variant transition-colors">LIST</button>
+</div>
+</div>
+<!-- Bento-style Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-md">
+<!-- Double Click -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">ads_click</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Double Click</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Standard rapid primary action used for opening files and applications.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">MOUSE</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">INTERACT</span>
+</div>
+</div>
+<!-- Drag & Drop -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">drag_pan</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Drag &amp; Drop</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Move objects by holding the primary button until released.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">MOUSE</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">MOTION</span>
+</div>
+</div>
+<!-- Switch Tabs -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-tertiary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">tab</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Switch Tabs</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Cycle through active browser or application tabs instantly.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">NAV</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">HOTKEY</span>
+</div>
+</div>
+<!-- Scroll Up/Down -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">height</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Scroll Up/Down</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Vertical page navigation. Speed can be mapped to gesture velocity.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">SCROLL</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">AXIS</span>
+</div>
+</div>
+<!-- Screenshot -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">screenshot_region</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Screenshot</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Capture the current screen or a selected region to clipboard.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">SYSTEM</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">MEDIA</span>
+</div>
+</div>
+<!-- Sleep Mode -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-error group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">power_settings_new</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Sleep Mode</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Immediately puts the operating system into a low-power state.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">SYSTEM</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">POWER</span>
+</div>
+</div>
+<!-- Mute -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">volume_off</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Mute</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Toggle system volume off or on with a single gesture.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">MEDIA</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">AUDIO</span>
+</div>
+</div>
+<!-- Zoom In/Out -->
+<div class="action-card bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-sm group">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-variant rounded-lg text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">zoom_in</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div>
+<h4 class="font-h2 text-h2 text-on-surface">Zoom In/Out</h4>
+<p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">Magnify or shrink screen content, ideal for accessibility and design.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">DISPLAY</span>
+<span class="px-2 py-0.5 rounded border border-outline-variant font-label-mono text-label-mono text-outline">VIEW</span>
+</div>
+</div>
+</div>
+<!-- Promotion / Upgrade Card -->
+<div class="mt-lg p-lg bg-surface-container-highest border border-outline-variant rounded-2xl flex items-center justify-between overflow-hidden relative">
+<div class="absolute left-0 top-0 w-1 h-full bg-primary-container"></div>
+<div class="max-w-2xl">
+<h3 class="font-h1 text-h1 text-on-surface mb-xs">Advanced Macro Editor</h3>
+<p class="font-body-md text-on-surface-variant">Combine multiple actions into a single fluid motion. Chain system commands, app launches, and key sequences to supercharge your workflow.</p>
+<div class="flex items-center gap-md mt-lg">
+<button class="px-lg py-2 bg-primary-container text-on-primary-container font-button rounded-lg hover:opacity-90 transition-opacity">Create Sequence</button>
+<button class="px-lg py-2 border border-outline-variant text-on-surface font-button rounded-lg hover:bg-surface-variant transition-colors">Documentation</button>
+</div>
+</div>
+<div class="hidden lg:block w-48 h-48 opacity-20">
+<span class="material-symbols-outlined text-[160px] text-primary">data_object</span>
+</div>
+</div>
+</section>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body>
+</html>

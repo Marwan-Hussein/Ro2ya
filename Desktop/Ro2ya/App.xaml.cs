@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Ro2ya
 {
@@ -7,11 +7,18 @@ namespace Ro2ya
         public App()
         {
             InitializeComponent();
+            UserAppTheme = AppTheme.Dark;
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            var window = new Window(new AppShell())
+            {
+                Title = "Ro2ya",
+                Width = 1380,
+                Height = 900
+            };
+            return window;
         }
     }
-}
+}
