@@ -13,3 +13,8 @@ Thumbs.db
 .vscode/
 /ForTeam
 /Helpers/recordings
+
+# .NET
+bin/
+obj/
+.vs/
