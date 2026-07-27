@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ro2ya.Pages.MainPage"
+             Title="Ro2ya"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#090d11">
+    <Grid>
+        <WebView x:Name="MainWebView"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Fill" />
+    </Grid>
+</ContentPage>
+
+

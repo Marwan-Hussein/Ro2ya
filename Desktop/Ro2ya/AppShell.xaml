@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Ro2ya.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Ro2ya.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Title="Ro2ya">
+
+    <ShellContent
+        Title="GestureStudio"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Route="main" />
+
+</Shell>
+

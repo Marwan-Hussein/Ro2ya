@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStudio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- TOP APP BAR (Shared Component: TopAppBar) -->
+<header class="h-16 flex justify-between items-center px-lg w-full bg-surface-container-low border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-md">
+<h2 class="font-h2 text-h2 font-bold text-on-surface">Analytics &amp; Performance</h2>
+<div class="hidden md:flex items-center px-sm py-1 bg-surface-container rounded border border-outline-variant">
+<span class="material-symbols-outlined text-primary-container text-[16px] mr-xs" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-label-mono text-label-mono text-primary-container uppercase">Device Connected</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors cursor-pointer">notifications</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-primary-container rounded-full border border-surface"></div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed-dim transition-colors cursor-pointer">help_outline</span>
+</div>
+</header>
+<!-- DASHBOARD GRID -->
+<div class="p-lg max-w-[1440px] mx-auto w-full space-y-lg">
+<!-- SECTION 1: PERFORMANCE METRICS ROW -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Recognition Accuracy -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-lg relative overflow-hidden group hover:border-primary-container/50 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest mb-xs">Recognition Accuracy</p>
+<h3 class="font-h1 text-h1 text-on-surface">98.4%</h3>
+</div>
+<div class="p-sm bg-surface-container-highest rounded border border-outline-variant">
+<span class="material-symbols-outlined text-primary-container">verified</span>
+</div>
+</div>
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[98.4%]"></div>
+</div>
+<p class="mt-sm font-body-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-green-400 text-[14px] mr-xs">trending_up</span>
+                        +1.2% from last session
+                    </p>
+</div>
+<!-- False Positive Rate -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-lg relative overflow-hidden group hover:border-primary-container/50 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest mb-xs">False Positive Rate</p>
+<h3 class="font-h1 text-h1 text-on-surface">0.02%</h3>
+</div>
+<div class="p-sm bg-surface-container-highest rounded border border-outline-variant">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+</div>
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-error w-[2%]"></div>
+</div>
+<p class="mt-sm font-body-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-green-400 text-[14px] mr-xs">trending_down</span>
+                        -0.01% Optimized
+                    </p>
+</div>
+<!-- Session Duration -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-lg relative overflow-hidden group hover:border-primary-container/50 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest mb-xs">Session Duration</p>
+<h3 class="font-h1 text-h1 text-on-surface">04h 22m</h3>
+</div>
+<div class="p-sm bg-surface-container-highest rounded border border-outline-variant">
+<span class="material-symbols-outlined text-tertiary">schedule</span>
+</div>
+</div>
+<div class="flex items-end gap-[2px] h-4">
+<div class="w-2 bg-outline-variant h-full"></div>
+<div class="w-2 bg-outline-variant h-2/3"></div>
+<div class="w-2 bg-primary-container h-full"></div>
+<div class="w-2 bg-primary-container h-3/4"></div>
+<div class="w-2 bg-outline-variant h-1/2"></div>
+<div class="w-2 bg-outline-variant h-4/5"></div>
+</div>
+<p class="mt-sm font-body-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[14px] mr-xs">history</span>
+                        Stable latency: 12ms
+                    </p>
+</div>
+</section>
+<!-- SECTION 2: USAGE CHARTS (ASymmetric Bento-ish Grid) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-lg h-full">
+<!-- Most Used Gestures Bar Chart (Column Span 5) -->
+<div class="lg:col-span-5 bg-surface-container border border-outline-variant rounded-lg flex flex-col">
+<div class="p-md border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-h2 text-h2 font-semibold text-on-surface">Most Used Gestures</h4>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface transition-colors">more_vert</span>
+</div>
+<div class="p-lg flex-1 space-y-lg">
+<!-- Bar 1 -->
+<div class="space-y-sm">
+<div class="flex justify-between font-label-mono text-label-mono uppercase">
+<span class="text-on-surface">Pinch-to-Click</span>
+<span class="text-primary-container">1.2k hits</span>
+</div>
+<div class="h-6 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-primary-container/40 border-r border-primary-container w-[85%] transition-all duration-1000 ease-out" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Bar 2 -->
+<div class="space-y-sm">
+<div class="flex justify-between font-label-mono text-label-mono uppercase">
+<span class="text-on-surface">Swipe Left (Back)</span>
+<span class="text-on-surface-variant">840 hits</span>
+</div>
+<div class="h-6 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-surface-variant/40 border-r border-outline w-[65%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<!-- Bar 3 -->
+<div class="space-y-sm">
+<div class="flex justify-between font-label-mono text-label-mono uppercase">
+<span class="text-on-surface">Open Menu (Palm)</span>
+<span class="text-on-surface-variant">420 hits</span>
+</div>
+<div class="h-6 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-surface-variant/40 border-r border-outline w-[35%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<!-- Bar 4 -->
+<div class="space-y-sm">
+<div class="flex justify-between font-label-mono text-label-mono uppercase">
+<span class="text-on-surface">Zoom Scroll</span>
+<span class="text-on-surface-variant">210 hits</span>
+</div>
+<div class="h-6 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-surface-variant/40 border-r border-outline w-[15%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Resource Consumption Line Chart (Column Span 7) -->
+<div class="lg:col-span-7 bg-surface-container border border-outline-variant rounded-lg flex flex-col min-h-[400px]">
+<div class="p-md border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-md">
+<h4 class="font-h2 text-h2 font-semibold text-on-surface">Resource Consumption</h4>
+<div class="flex gap-sm">
+<span class="flex items-center gap-xs px-sm py-1 rounded bg-primary-container/10 border border-primary-container/20 font-label-mono text-[10px] text-primary-container">CPU: 4.2%</span>
+<span class="flex items-center gap-xs px-sm py-1 rounded bg-secondary-container/10 border border-secondary-container/20 font-label-mono text-[10px] text-secondary">RAM: 128MB</span>
+</div>
+</div>
+<div class="flex bg-surface-container-highest rounded p-1 border border-outline-variant">
+<button class="px-3 py-1 font-label-mono text-label-mono text-on-surface bg-surface border border-outline-variant rounded shadow-sm">Real-time</button>
+<button class="px-3 py-1 font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors">History</button>
+</div>
+</div>
+<div class="p-lg flex-1 relative flex flex-col">
+<!-- Simulated Chart Grid -->
+<div class="absolute inset-lg flex flex-col justify-between pointer-events-none opacity-20">
+<div class="border-t border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-t border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-t border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-t border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-t border-dashed border-outline-variant w-full h-0"></div>
+</div>
+<!-- Data Visual SVG (Simulating Line Chart) -->
+<div class="flex-1 relative z-10">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 400">
+<!-- Area Fill -->
+<path d="M0,400 L0,300 L50,320 L100,280 L150,290 L200,240 L250,250 L300,200 L350,220 L400,180 L450,190 L500,140 L550,160 L600,120 L650,130 L700,80 L750,100 L800,60 L850,70 L900,20 L950,40 L1000,0 L1000,400 Z" fill="url(#chartGradient)" opacity="0.3"></path>
+<!-- Line -->
+<path d="M0,300 L50,320 L100,280 L150,290 L200,240 L250,250 L300,200 L350,220 L400,180 L450,190 L500,140 L550,160 L600,120 L650,130 L700,80 L750,100 L800,60 L850,70 L900,20 L950,40 L1000,0" fill="none" stroke="#00D4FF" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00D4FF"></stop>
+<stop offset="100%" stop-color="#00D4FF" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<!-- X-Axis Labels -->
+<div class="mt-md flex justify-between font-label-mono text-[10px] text-on-surface-variant uppercase">
+<span>-60m</span>
+<span>-45m</span>
+<span>-30m</span>
+<span>-15m</span>
+<span>now</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: RECENT EVENTS / LOGS (List Pattern) -->
+<section class="bg-surface-container border border-outline-variant rounded-lg">
+<div class="p-md border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-h2 text-h2 font-semibold text-on-surface">Recent Performance Logs</h4>
+<button class="font-button text-button text-primary-container px-sm py-1 hover:bg-primary-container/10 rounded transition-colors">Download CSV</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="font-label-mono text-label-mono text-on-surface-variant border-b border-outline-variant bg-surface-container-low">
+<th class="px-lg py-md font-medium uppercase">Timestamp</th>
+<th class="px-lg py-md font-medium uppercase">Event Type</th>
+<th class="px-lg py-md font-medium uppercase">Latency</th>
+<th class="px-lg py-md font-medium uppercase">Confidence</th>
+<th class="px-lg py-md font-medium uppercase text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">12:44:02.04</td>
+<td class="px-lg py-md font-body-md text-on-surface font-medium">Gesture recognized: Swipe_Up</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">08ms</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">0.992</td>
+<td class="px-lg py-md text-right"><span class="px-2 py-1 bg-green-900/30 text-green-400 text-[10px] font-bold rounded uppercase">Verified</span></td>
+</tr>
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">12:43:58.21</td>
+<td class="px-lg py-md font-body-md text-on-surface font-medium">Gesture recognized: Zoom_In</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">14ms</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">0.941</td>
+<td class="px-lg py-md text-right"><span class="px-2 py-1 bg-green-900/30 text-green-400 text-[10px] font-bold rounded uppercase">Verified</span></td>
+</tr>
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">12:43:45.02</td>
+<td class="px-lg py-md font-body-md text-on-surface font-medium">Ambiguous input discarded</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">22ms</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">0.312</td>
+<td class="px-lg py-md text-right"><span class="px-2 py-1 bg-tertiary/10 text-tertiary text-[10px] font-bold rounded uppercase">Ignored</span></td>
+</tr>
+<tr class="hover:bg-surface-variant transition-colors group">
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">12:43:12.88</td>
+<td class="px-lg py-md font-body-md text-on-surface font-medium">Gesture recognized: Tap_Index</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">09ms</td>
+<td class="px-lg py-md font-label-mono text-body-sm text-on-surface-variant">0.998</td>
+<td class="px-lg py-md text-right"><span class="px-2 py-1 bg-green-900/30 text-green-400 text-[10px] font-bold rounded uppercase">Verified</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body>
+</html>

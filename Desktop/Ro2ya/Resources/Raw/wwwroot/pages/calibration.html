@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStudio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- TOP APP BAR (Shared Component Contextual) -->
+<header class="h-16 flex justify-between items-center px-lg w-full bg-surface-container-low border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-md">
+<span class="font-h2 text-h2 font-bold text-on-surface">Gesture Control Systems</span>
+<span class="h-4 w-px bg-outline-variant mx-sm"></span>
+<div class="flex items-center gap-xs text-primary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="font-label-mono text-label-mono uppercase tracking-wider">Device Connected</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- WIZARD CANVAS -->
+<section class="flex-1 flex flex-col p-lg max-w-[1200px] mx-auto w-full">
+<!-- 1. PROGRESS INDICATOR -->
+<div class="w-full mb-xl">
+<div class="flex justify-between items-start">
+<!-- Step 1: Camera -->
+<div class="flex flex-col items-center gap-sm group relative flex-1">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container z-10">
+<span class="material-symbols-outlined text-sm" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-mono text-label-mono text-primary-container">Camera</span>
+<div class="absolute top-4 left-1/2 w-full h-[2px] bg-primary-container"></div>
+</div>
+<!-- Step 2: Face -->
+<div class="flex flex-col items-center gap-sm group relative flex-1">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container z-10">
+<span class="material-symbols-outlined text-sm" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-mono text-label-mono text-primary-container">Face</span>
+<div class="absolute top-4 left-1/2 w-full h-[2px] bg-primary-container"></div>
+</div>
+<!-- Step 3: Hand (ACTIVE) -->
+<div class="flex flex-col items-center gap-sm group relative flex-1">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center text-primary-container z-10 active-step-shadow ring-4 ring-primary-container/10">
+<span class="material-symbols-outlined text-sm" data-icon="back_hand" style="font-variation-settings: 'FILL' 0;">back_hand</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface font-bold">Hand</span>
+<div class="absolute top-4 left-1/2 w-full h-[2px] bg-outline-variant"></div>
+</div>
+<!-- Step 4: Training -->
+<div class="flex flex-col items-center gap-sm group relative flex-1">
+<div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant z-10">
+<span class="material-symbols-outlined text-sm" data-icon="model_training">model_training</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Training</span>
+<div class="absolute top-4 left-1/2 w-full h-[2px] bg-outline-variant"></div>
+</div>
+<!-- Step 5: Tuning -->
+<div class="flex flex-col items-center gap-sm group relative flex-1">
+<div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant z-10">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Tuning</span>
+<div class="absolute top-4 left-1/2 w-full h-[2px] bg-outline-variant"></div>
+</div>
+<!-- Step 6: Complete -->
+<div class="flex flex-col items-center gap-sm group relative">
+<div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant z-10">
+<span class="material-symbols-outlined text-sm" data-icon="task_alt">task_alt</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Complete</span>
+</div>
+</div>
+</div>
+<!-- 2. LARGE VISUAL INSTRUCTIONS -->
+<div class="flex-1 flex flex-col items-center justify-center text-center px-xl py-lg bg-surface-container-lowest rounded-xl border border-outline-variant relative overflow-hidden">
+<!-- Atmospheric background glow -->
+<div class="absolute top-0 left-0 w-64 h-64 bg-primary-container/5 blur-[120px] -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-tertiary-container/5 blur-[120px] translate-x-1/2 translate-y-1/2 rounded-full"></div>
+<div class="max-w-2xl w-full flex flex-col items-center z-10">
+<h2 class="font-h1 text-h1 text-on-surface mb-md">Position your Hand</h2>
+<p class="font-body-md text-on-surface-variant mb-xl max-w-md">
+                        Raise your primary hand into the frame. Keep your palm facing the camera and ensure all five fingers are visible within the green boundary.
+                    </p>
+<!-- Illustration/Camera Preview Placeholder -->
+<div class="w-full aspect-video bg-surface-dim rounded-lg border border-primary-container/30 relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-60" data-alt="A technical blueprint illustration of a human hand being mapped by glowing cyan digital laser dots and a skeleton mesh. The background is a dark minimalist tech interface with professional UI elements, data readouts, and a soft depth of field. High-performance dark mode aesthetic with vibrant cyan accents and professional studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB05xr8Ukq7Fn_A_pjWCDpZlG6c22pmMP-7H2DwfHTJcVH3UdgQpq-VcYdQap1NXC16l_slCr7NWMXQUUFnJrlNy5aR1HCrerdSFmwrKVIwYfSQgkeqa42Qn_Lb9qS73tlMUGnfLZEBtik7lWU1kahDnAeH7oVcUwGe7dobfEx95hud8On-MUeumrXsFk4Ii7d9HQZJLUSj73mfv0RyLD389yTvEltfQsRcMjgJgkwdFfwALVnpdBBxhv7O6WONN572k6WaGsdtoxXm')"></div>
+<!-- HUD Elements Overlay -->
+<div class="absolute inset-0 p-lg flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between">
+<div class="w-12 h-12 border-t-2 border-l-2 border-primary-container rounded-tl-sm"></div>
+<div class="w-12 h-12 border-t-2 border-r-2 border-primary-container rounded-tr-sm"></div>
+</div>
+<!-- Central Hand Target -->
+<div class="flex items-center justify-center">
+<div class="w-48 h-48 border border-dashed border-primary-container/50 rounded-full animate-pulse flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-6xl opacity-30" data-icon="back_hand">back_hand</span>
+</div>
+</div>
+<div class="flex justify-between">
+<div class="w-12 h-12 border-b-2 border-l-2 border-primary-container rounded-bl-sm"></div>
+<div class="w-12 h-12 border-b-2 border-r-2 border-primary-container rounded-br-sm"></div>
+</div>
+</div>
+<!-- Real-time Status -->
+<div class="absolute bottom-md left-md flex items-center gap-sm bg-surface-dim/80 backdrop-blur-md px-sm py-xs border border-outline-variant rounded-full">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-ping" style="opacity: 0.749132;"></div>
+<span class="font-label-mono text-[10px] uppercase text-primary-container tracking-tighter">Tracking Active</span>
+</div>
+</div>
+<!-- Action Prompt -->
+<div class="mt-xl flex flex-col items-center gap-sm">
+<div class="flex items-center gap-md">
+<div class="px-sm py-xs bg-surface-container border border-outline-variant rounded flex items-center gap-xs">
+<span class="font-label-mono text-label-mono text-on-surface">DISTANCE</span>
+<div class="w-24 h-1 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary-container"></div>
+</div>
+</div>
+<div class="px-sm py-xs bg-surface-container border border-outline-variant rounded flex items-center gap-xs">
+<span class="font-label-mono text-label-mono text-on-surface">LIGHTING</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" data-icon="wb_sunny" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<span class="font-label-mono text-label-mono text-on-surface">OPTIMAL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. CALL TO ACTION -->
+<div class="mt-xl flex items-center justify-between">
+<button class="px-lg py-md font-button text-button text-on-surface-variant hover:text-on-surface flex items-center gap-sm transition-all border border-transparent hover:border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+                    Previous Step
+                </button>
+<div class="flex gap-md">
+<button class="px-xl py-md font-button text-button text-on-surface bg-surface-container-high border border-outline-variant hover:bg-surface-variant transition-all rounded-lg uppercase tracking-widest">
+                        Skip
+                    </button>
+<button class="px-xl py-md font-button text-button bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim transition-all rounded-lg flex items-center gap-sm shadow-lg shadow-primary-container/20 uppercase tracking-widest font-bold">
+                        Next
+                        <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- FOOTER METRICS (Contextual for Calibration) -->
+<footer class="mt-auto px-lg py-md flex items-center justify-between bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex items-center gap-lg">
+<div class="flex flex-col">
+<span class="font-label-mono text-[9px] text-on-surface-variant uppercase">Frames per sec</span>
+<span class="font-label-mono text-body-sm text-primary-container">60 FPS</span>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[9px] text-on-surface-variant uppercase">Inference Latency</span>
+<span class="font-label-mono text-body-sm text-on-surface">12ms</span>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[9px] text-on-surface-variant uppercase">Detection Confidence</span>
+<span class="font-label-mono text-body-sm text-on-surface">94.2%</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-xs text-on-surface-variant font-label-mono">HARDWARE ACCELERATION:</span>
+<span class="px-xs py-[2px] bg-secondary-container/20 border border-secondary-container rounded text-[9px] text-secondary-fixed-dim font-bold">CUDA CORE V12</span>
+</div>
+</footer>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#859398",
+                        "primary-fixed-dim": "#3cd7ff",
+                        "surface-dim": "#0e1417",
+                        "secondary-container": "#3d465e",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#6c4900",
+                        "on-primary-container": "#00586b",
+                        "surface-bright": "#333a3d",
+                        "on-secondary-fixed": "#121b30",
+                        "on-tertiary": "#432c00",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#080f12",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "surface-container": "#1a2123",
+                        "surface-variant": "#2f3639",
+                        "secondary-fixed": "#d9e2ff",
+                        "on-secondary-container": "#acb5d0",
+                        "surface-tint": "#3cd7ff",
+                        "on-primary": "#003642",
+                        "secondary": "#bdc6e2",
+                        "on-background": "#dde3e7",
+                        "tertiary-fixed-dim": "#ffba3d",
+                        "tertiary-container": "#feb528",
+                        "inverse-surface": "#dde3e7",
+                        "on-primary-fixed": "#001f27",
+                        "tertiary": "#ffd9a1",
+                        "outline-variant": "#3c494e",
+                        "inverse-primary": "#00677e",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#3d465e",
+                        "surface-container-highest": "#2f3639",
+                        "inverse-on-surface": "#2b3134",
+                        "primary-fixed": "#b4ebff",
+                        "surface-container-low": "#161d1f",
+                        "surface": "#0e1417",
+                        "on-error": "#690005",
+                        "primary": "#a8e8ff",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary": "#273046",
+                        "tertiary-fixed": "#ffdeae",
+                        "on-tertiary-fixed": "#281900",
+                        "primary-container": "#00d4ff",
+                        "surface-container-high": "#242b2e",
+                        "on-surface": "#dde3e7",
+                        "background": "#0e1417",
+                        "on-surface-variant": "#bbc9cf",
+                        "secondary-fixed-dim": "#bdc6e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar_width": "240px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "container_max_width": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Geist"],
+                        "body-md": ["Geist"],
+                        "h1": ["Geist"],
+                        "button": ["Geist"],
+                        "h2": ["Geist"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "button": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "h2": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureStudio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script src="../js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- Shared TopAppBar -->
+<header class="flex justify-between items-center px-lg w-full h-16 bg-surface-container-low border-b border-outline-variant shrink-0">
+<div class="flex items-center">
+<h2 class="font-h2 text-h2 font-bold text-on-surface">Gesture Control Systems</h2>
+<div class="ml-lg px-sm py-1 bg-surface-container-high rounded border border-outline-variant flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-label-mono text-[10px] text-primary-container">Device Connected</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-surface-container-low"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small circular profile icon representing the active user, featuring a minimalist 3D render of a stylized face with soft lighting in a dark-themed professional digital interface environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSaskMGl37iTM9IYfx-NKGBfDI2KoTHnvyiWcPfnp3G01Zo-sab87WYUCU-IDAnFRX7__HoxCFMkHEmA7PLhgw1AYA_Tuv77-kc94VKTpzqCcLoSzwhMb80FltDxvA8Z1Gj21rvhMBpvqygijQnaN3H1rFrWs0Ln_3JsNG0xTaavh8d2xgeDcRc_OYvVYNhKzfBinmPbYVYyUWgpwpCwO4a_Pbf8ZRZ3otqPGVNK8NW1MFz2Yi_cKllNLd8qiLLJPBJZma8nTrKkUc">
+</div>
+</div>
+</header>
+<!-- Content Area: Settings -->
+<div class="flex-1 overflow-y-auto p-lg bg-surface flex justify-center">
+<div class="max-w-4xl w-full">
+<!-- Header -->
+<div class="mb-lg">
+<h1 class="font-h1 text-h1 text-on-surface mb-xs">System Settings</h1>
+<p class="font-body-md text-on-surface-variant">Configure your environment, AI models, and hardware preferences.</p>
+</div>
+<!-- Bento Style Grid for Sections -->
+<div class="grid grid-cols-12 gap-md">
+<!-- 1. General Settings -->
+<section class="col-span-12 md:col-span-12 bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center gap-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-primary">toggle_on</span>
+<h3 class="font-h2 text-h2">General</h3>
+</div>
+<div class="p-md space-y-lg">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Startup with OS</p>
+<p class="font-body-sm text-outline">Automatically launch GestureStudio when Windows starts.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Minimize to tray</p>
+<p class="font-body-sm text-outline">Keep the app running in the background when closed.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Notifications</p>
+<p class="font-body-sm text-outline">Show alerts for profile changes and device status.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 2. AI & Detection -->
+<section class="col-span-12 md:col-span-7 bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center gap-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+<h3 class="font-h2 text-h2">AI &amp; Detection</h3>
+</div>
+<div class="p-md space-y-lg">
+<div>
+<label class="font-body-md font-semibold block mb-sm">Inference Model</label>
+<select class="w-full bg-surface-dim border border-outline-variant rounded-lg p-sm font-body-sm text-on-surface focus:border-primary-container outline-none appearance-none">
+<option>NeuroFlow v3.1 (Optimal)</option>
+<option>NeuroFlow Lite (Low Power)</option>
+<option>Legacy v2.8 (Compatibility)</option>
+</select>
+</div>
+<div>
+<div class="flex justify-between mb-sm">
+<label class="font-body-md font-semibold">Tracking Quality</label>
+<span class="font-label-mono text-primary">Ultra (99.2%)</span>
+</div>
+<input class="w-full" max="100" min="0" type="range" value="90">
+<div class="flex justify-between mt-1">
+<span class="text-[10px] text-outline font-label-mono">PERFORMANCE</span>
+<span class="text-[10px] text-outline font-label-mono">ACCURACY</span>
+</div>
+</div>
+<div>
+<label class="font-body-md font-semibold block mb-sm">Detection Frequency</label>
+<div class="grid grid-cols-3 gap-xs">
+<button class="bg-surface-container-high border border-primary-container text-primary font-button py-sm rounded-lg">60Hz</button>
+<button class="bg-surface-dim border border-outline-variant text-outline font-button py-sm rounded-lg hover:border-on-surface transition-colors">90Hz</button>
+<button class="bg-surface-dim border border-outline-variant text-outline font-button py-sm rounded-lg hover:border-on-surface transition-colors">120Hz</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Camera Settings -->
+<section class="col-span-12 md:col-span-5 bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center gap-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary">videocam</span>
+<h3 class="font-h2 text-h2">Camera</h3>
+</div>
+<div class="p-md space-y-lg">
+<div class="aspect-video bg-surface-dim rounded-lg border border-outline-variant relative overflow-hidden flex items-center justify-center group">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" data-alt="A first-person view of a high-tech camera preview screen showing a human hand in mid-air being tracked by a digital skeleton overlay. The lighting is moody and dark, with bright cyan and neon lines outlining the hand joints, following the professional developer tool aesthetic of GestureStudio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmqpxKrlnaSDPNQXGKEl6vkluep_mXvYphIWe3cOzANwInTlnjwFR-7hpKSuBZMchjMmFeMQTabrrS3Ge43F37JO8pzeqWdPxFw7p_Mw3yp1earO4XuqmlBVCDxZIDkT24JiyLtZqO1tEhlj5oWAsMxfh_OJdc9DDma0tjfOK7lRMmQJU2B9_VwK1DQ_ZnR09dy-Rcr2EEsfJjHcA8ALKmlIji2wAVOG6sYG6qJWiX2B61RXaFChQmMOKZNqGjjaY81ADEdDSE10gC">
+<div class="absolute bottom-2 right-2 bg-surface-container-lowest/80 px-sm py-xs rounded border border-outline-variant backdrop-blur-sm">
+<span class="font-label-mono text-[9px] text-primary">LIVE PREVIEW</span>
+</div>
+</div>
+<div>
+<label class="font-body-md font-semibold block mb-sm">Device</label>
+<select class="w-full bg-surface-dim border border-outline-variant rounded-lg p-sm font-body-sm text-on-surface focus:border-primary-container outline-none">
+<option>Logitech StreamCam Plus</option>
+<option>Integrated Webcam</option>
+<option>OBS Virtual Camera</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="font-body-md font-semibold block mb-sm">Resolution</label>
+<select class="w-full bg-surface-dim border border-outline-variant rounded-lg p-sm font-body-sm">
+<option>1080p</option>
+<option>720p</option>
+</select>
+</div>
+<div>
+<label class="font-body-md font-semibold block mb-sm">FPS</label>
+<select class="w-full bg-surface-dim border border-outline-variant rounded-lg p-sm font-body-sm">
+<option>60 FPS</option>
+<option>30 FPS</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Privacy Settings -->
+<section class="col-span-12 bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error">shield</span>
+<h3 class="font-h2 text-h2">Privacy &amp; Security</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase">All Processing Local</span>
+</div>
+</div>
+<div class="p-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-md">
+<div class="p-md bg-surface-dim border border-outline-variant rounded-lg flex items-start gap-md">
+<div class="mt-1">
+<span class="material-symbols-outlined text-outline">verified_user</span>
+</div>
+<div>
+<p class="font-body-md font-semibold">Camera Permissions</p>
+<p class="font-body-sm text-outline mb-sm">Control which apps can access the gesture stream.</p>
+<button class="font-button text-primary border border-primary/20 bg-primary/5 px-md py-sm rounded-lg hover:bg-primary/10 transition-colors">Manage Permissions</button>
+</div>
+</div>
+<div class="p-md bg-surface-dim border border-outline-variant rounded-lg flex items-start gap-md">
+<div class="mt-1">
+<span class="material-symbols-outlined text-outline">storage</span>
+</div>
+<div>
+<p class="font-body-md font-semibold">Data Storage</p>
+<p class="font-body-sm text-outline mb-sm">Choose how long to keep gesture calibration data.</p>
+<div class="flex gap-md">
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="text-primary-container bg-surface-dim border-outline-variant" name="storage" type="radio">
+<span class="font-body-sm">30 Days</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="text-primary-container bg-surface-dim border-outline-variant" name="storage" type="radio">
+<span class="font-body-sm">Never</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-highest/50 p-md rounded-lg border border-dashed border-outline-variant">
+<p class="font-label-mono text-[10px] text-outline uppercase mb-md">System Privacy Audit</p>
+<div class="space-y-sm">
+<div class="flex items-center justify-between py-xs border-b border-outline-variant/30">
+<span class="font-body-sm">Cloud Syncing</span>
+<span class="font-label-mono text-error text-[11px]">DISABLED</span>
+</div>
+<div class="flex items-center justify-between py-xs border-b border-outline-variant/30">
+<span class="font-body-sm">Biometric Hashing</span>
+<span class="font-label-mono text-primary text-[11px]">ACTIVE</span>
+</div>
+<div class="flex items-center justify-between py-xs border-b border-outline-variant/30">
+<span class="font-body-sm">Encrypted Profiles</span>
+<span class="font-label-mono text-primary text-[11px]">AES-256</span>
+</div>
+<div class="flex items-center justify-between py-xs">
+<span class="font-body-sm">Telemetry</span>
+<span class="font-label-mono text-outline text-[11px]">ANONYMOUS</span>
+</div>
+</div>
+<div class="mt-lg">
+<button class="w-full bg-on-surface text-surface py-sm rounded-lg font-button hover:bg-white transition-colors">Export Security Log</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="mt-xl flex justify-end items-center gap-md pb-xl">
+<button class="font-button text-on-surface-variant hover:text-on-surface transition-colors">Reset to Default</button>
+<button class="bg-primary-container text-on-primary-container font-button px-lg py-md rounded-lg hover:opacity-90 active:scale-95 transition-all">Apply Changes</button>
+</div>
+</div>
+</div>
+    <!-- Micro-interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+                btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body>
+</html>

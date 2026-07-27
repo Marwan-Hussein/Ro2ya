@@ -242,13 +242,13 @@ def process_video_pipeline(video_path, output_path, feature_method="raw"):
        - 'invariant': applies Method 3 to both hands and concatenates
     """
     raw_frames = extract_landmarks_from_video(video_path)
-    if len(raw_frames) == 0:
-        print(f"No frames extracted from {video_path}")
+    if raw_frames is None or raw_frames.size == 0 or len(raw_frames) == 0:
+        print(f"[SKIP] No frames extracted from: {video_path}")
         return
         
     normalized_frames = interpolate_and_normalize(raw_frames)
-    if normalized_frames is None:
-        print(f"No valid landmarks in {video_path}")
+    if normalized_frames is None or np.all(normalized_frames == 0):
+        print(f"[SKIP] No valid landmarks in: {video_path}")
         return
         
     if feature_method == "raw":
@@ -256,23 +256,94 @@ def process_video_pipeline(video_path, output_path, feature_method="raw"):
         final_features = normalized_frames.reshape(normalized_frames.shape[0], -1)
         
     elif feature_method == "invariant":
-        # Extract invariant features for both hands
+        pose_features = normalized_frames[:, :33, :].reshape(normalized_frames.shape[0], -1)
         left_hand = normalized_frames[:, 33:54, :]
         right_hand = normalized_frames[:, 54:75, :]
-        
+
         lh_features = extract_angle_distance_features(left_hand)
         rh_features = extract_angle_distance_features(right_hand)
-        
-        # Concatenate features (e.g. 5 dists + 10 angles = 15 features per hand -> 30 total per frame)
-        final_features = np.concatenate((lh_features, rh_features), axis=1)
+
+        final_features = np.concatenate((pose_features, lh_features, rh_features), axis=1)
         
     else:
         raise ValueError(f"Unknown feature method: {feature_method}")
-        
-    # Create output directory if it doesn't exist
-    os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
+
+    output_dir = os.path.dirname(os.path.abspath(output_path))
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
     np.save(output_path, final_features)
-    print(f"Successfully processed {video_path} -> {output_path} (Shape: {final_features.shape})")
+    print(f"[SUCCESS] {os.path.basename(video_path)} -> {output_path} | Shape: {final_features.shape}")
+
+
+def run_batch_processing(base_dir, target_folders, output_dir, feature_method="raw"):
+    """
+    Locates video files from target subdirectories and processes them sequentially.
+    """
+    video_extensions = ('*.mp4', '*.avi', '*.mov', '*.mkv', '*.webm')
+    processed_count = 0
+
+    print(f"\n--- Starting Batch Processing ---")
+    print(f"Base Directory: {base_dir}")
+    print(f"Folders Targeted: {target_folders}\n")
+
+    for folder in target_folders:
+        folder_path = os.path.join(base_dir, folder)
+
+        if not os.path.exists(folder_path):
+            print(f"Warning: Directory '{folder_path}' does not exist.")
+            continue
+
+        video_files = []
+        for ext in video_extensions:
+            video_files.extend(glob.glob(os.path.join(folder_path, ext)))
+
+        print(f"\nFound {len(video_files)} video(s) in folder '{folder}'")
+
+        for video_path in video_files:
+            file_name = os.path.basename(video_path)
+            save_name = os.path.splitext(file_name)[0] + ".npy"
+            save_path = os.path.join(output_dir, folder, save_name)
+
+            process_video_pipeline(video_path, save_path, feature_method=feature_method)
+            processed_count += 1
+
+    print(f"\nBatch processing complete! Total processed: {processed_count}")
+
+
+def compile_dataset(processed_dir, target_folders, max_sequence_length=60):
+    """
+    Loads saved .npy files, pads/truncates sequences, and builds X and y arrays.
+    """
+    X_list, y_list = [], []
+    label_map = {folder: i for i, folder in enumerate(target_folders)}
+
+    for folder, label in label_map.items():
+        folder_path = os.path.join(processed_dir, folder)
+        npy_files = glob.glob(os.path.join(folder_path, "*.npy"))
+
+        for file in npy_files:
+            features = np.load(file)
+            num_frames, feature_dim = features.shape
+
+            # Zero-padding or truncating
+            if num_frames < max_sequence_length:
+                padding = np.zeros((max_sequence_length - num_frames, feature_dim))
+                padded_features = np.vstack([features, padding])
+            else:
+                padded_features = features[:max_sequence_length, :]
+
+            X_list.append(padded_features)
+            y_list.append(label)
+
+    X = np.array(X_list)
+    y = np.array(y_list)
+
+    print(f"\n--- Dataset Summary ---")
+    print(f"X shape: {X.shape} (Samples, Sequence Length, Features)")
+    print(f"y shape: {y.shape}")
+    print(f"Label map: {label_map}")
+    return X, y, label_map
 
 if __name__ == "__main__":
     # Example usage:

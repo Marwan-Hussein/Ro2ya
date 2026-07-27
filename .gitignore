@@ -11,6 +11,13 @@ venv/
 .DS_Store
 Thumbs.db
 .vscode/
+/ForTeam
+/Helpers/recordings
+
+# .NET
+bin/
+obj/
+.vs/
 
 Ai/gestures_RO2YA
 Ai/processed_features
