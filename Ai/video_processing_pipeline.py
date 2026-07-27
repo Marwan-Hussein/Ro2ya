@@ -8,6 +8,7 @@ import os
 import glob
 import math
 import urllib.request
+from typing import List
 
 MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "holistic_landmarker.task")
 MODEL_URL = "https://storage.googleapis.com/mediapipe-models/holistic_landmarker/holistic_landmarker/float16/latest/holistic_landmarker.task"
