@@ -276,38 +276,39 @@ def process_video_pipeline(video_path, output_path, feature_method="raw"):
     print(f"[SUCCESS] {os.path.basename(video_path)} -> {output_path} | Shape: {final_features.shape}")
 
 
-def run_batch_processing(base_dir, target_folders, output_dir, feature_method="raw"):
-    """
-    Locates video files from target subdirectories and processes them sequentially.
-    """
+def run_batch_processing(base_dir: str, target_folders: List[str], output_dir: str, feature_method="invariant"):
+    """Batch processes raw video directories into flat feature numpy files."""
     video_extensions = ('*.mp4', '*.avi', '*.mov', '*.mkv', '*.webm')
     processed_count = 0
 
-    print(f"\n--- Starting Batch Processing ---")
-    print(f"Base Directory: {base_dir}")
-    print(f"Folders Targeted: {target_folders}\n")
-
+    print(f"\n--- Batch Feature Extraction Starting ---")
     for folder in target_folders:
         folder_path = os.path.join(base_dir, folder)
-
         if not os.path.exists(folder_path):
-            print(f"Warning: Directory '{folder_path}' does not exist.")
+            print(f"Warning: Folder '{folder_path}' not found.")
             continue
 
         video_files = []
         for ext in video_extensions:
-            video_files.extend(glob.glob(os.path.join(folder_path, ext)))
+            search_pattern = os.path.join(folder_path, "**", ext)
+            video_files.extend(glob.glob(search_pattern, recursive=True))
 
-        print(f"\nFound {len(video_files)} video(s) in folder '{folder}'")
-
+        print(f"Processing {len(video_files)} video(s) from '{folder}' (including subfolders)...")
         for video_path in video_files:
-            file_name = os.path.basename(video_path)
-            save_name = os.path.splitext(file_name)[0] + ".npy"
+            # 1. Get relative path to folder root (e.g. "subfolderA/user1/clip1.mp4")
+            rel_path = os.path.relpath(video_path, folder_path)
+
+            # 2. Replace directory separators with underscores to flatten the filename safely
+            # Example: "subfolderA/user1/clip1.mp4" -> "subfolderA_user1_clip1.npy"
+            safe_file_name = rel_path.replace(os.sep, "_")
+            save_name = os.path.splitext(safe_file_name)[0] + ".npy"
+
+            # 3. Save directly inside output_dir/folder without creating subdirectories
             save_path = os.path.join(output_dir, folder, save_name)
 
             process_video_pipeline(video_path, save_path, feature_method=feature_method)
             processed_count += 1
 
-    print(f"\nBatch processing complete! Total processed: {processed_count}")
+    print(f"Batch Processing Complete! Total extracted: {processed_count}\n")
 
 
