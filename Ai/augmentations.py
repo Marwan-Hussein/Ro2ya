@@ -27,3 +27,23 @@ def time_warp_sequence(features, warp_factor=0.8):
 def random_scaling(features, scale_range=(0.9, 1.1)):
     scale = np.random.uniform(scale_range[0], scale_range[1])
     return features * scale
+
+
+
+
+def augment_clip(features, p=0.8):
+    """
+    Applies a random subset of the three augmentations to one clip.
+    Called fresh per-sample, per-epoch, so the model rarely sees the
+    exact same input twice. Order matters: time_warp changes sequence
+    length, so it runs first while the array is still "clean."
+    """
+    out = features
+    if np.random.rand() < p:
+        warp_factor = np.random.uniform(0.8, 1.2)  # both speed up and slow down
+        out = time_warp_sequence(out, warp_factor=warp_factor)
+    if np.random.rand() < p:
+        out = add_jitter_noise(out, noise_level=0.01)
+    if np.random.rand() < p:
+        out = random_scaling(out, scale_range=(0.9, 1.1))
+    return out
