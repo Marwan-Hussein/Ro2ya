@@ -18,6 +18,14 @@ def ensure_model_exists():
         urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
         print("Download completed.")
 
+def get_landmarks(landmarks_field):
+    if not landmarks_field:
+        return []
+    first = landmarks_field[0]
+    if hasattr(first, '__len__') and not hasattr(first, 'x'):
+        return first
+    return landmarks_field
+
 def extract_landmarks_from_video(video_path):
     """
     Extracts 75 landmarks from each frame of the video using MediaPipe Tasks API.
@@ -53,18 +61,21 @@ def extract_landmarks_from_video(video_path):
             row = np.full((75, 3), np.nan)
             
             # Extract Pose (33 landmarks)
-            if results.pose_landmarks and len(results.pose_landmarks) > 0:
-                for i, lm in enumerate(results.pose_landmarks[0]):
+            pose_lms = get_landmarks(results.pose_landmarks)
+            for i, lm in enumerate(pose_lms):
+                if i < 33:
                     row[i] = [lm.x, lm.y, lm.z]
                     
             # Extract Left Hand (indices 33 to 53)
-            if results.left_hand_landmarks and len(results.left_hand_landmarks) > 0:
-                for i, lm in enumerate(results.left_hand_landmarks[0]):
+            left_lms = get_landmarks(results.left_hand_landmarks)
+            for i, lm in enumerate(left_lms):
+                if i < 21:
                     row[33 + i] = [lm.x, lm.y, lm.z]
                     
             # Extract Right Hand (indices 54 to 74)
-            if results.right_hand_landmarks and len(results.right_hand_landmarks) > 0:
-                for i, lm in enumerate(results.right_hand_landmarks[0]):
+            right_lms = get_landmarks(results.right_hand_landmarks)
+            for i, lm in enumerate(right_lms):
+                if i < 21:
                     row[54 + i] = [lm.x, lm.y, lm.z]
                     
             frames_data.append(row)
