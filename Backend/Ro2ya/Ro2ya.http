@@ -1,4 +1,4 @@
-@Ro2ya_HostAddress = http://localhost:5152
+@Ro2ya_HostAddress = http://localhost:5034
 
 GET {{Ro2ya_HostAddress}}/weatherforecast/
 Accept: application/json

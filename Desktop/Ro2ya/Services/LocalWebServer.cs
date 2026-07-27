@@ -32,18 +32,25 @@ namespace Ro2ya.Services
                 }
             }
 
-            _listener = new HttpListener();
-            _listener.Prefixes.Add(BaseUrl);
-
-            try
+            int[] portsToTry = new[] { 18492, 18493, 18494, 18495, 18496 };
+            foreach (var port in portsToTry)
             {
-                _listener.Start();
-                _isRunning = true;
-                Task.Run(ListenLoop);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Failed to start LocalWebServer on port {_port}: {ex.Message}");
+                try
+                {
+                    _port = port;
+                    _listener = new HttpListener();
+                    _listener.Prefixes.Add(BaseUrl);
+                    _listener.Start();
+                    _isRunning = true;
+                    Task.Run(ListenLoop);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Failed to start LocalWebServer on port {_port}: {ex.Message}");
+                    _listener?.Close();
+                    _listener = null;
+                }
             }
         }
 

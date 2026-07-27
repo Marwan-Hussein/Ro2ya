@@ -1,17 +1,17 @@
 """
 Available Gestures
 ------------------
-left-click
-right-click
+left-click ✅
+right-click ✅
 
-brightness-up
-brightness-down
+brightness-up ✅
+brightness-down ✅
 
-zoom-in
-zoom-out
+zoom-in ✅
+zoom-out ✅
 
-back-button
-forward-button
+back-button ✅
+forward-button ✅
 
 cursor-up
 cursor-down
@@ -21,17 +21,18 @@ cursor-right
 tab-next
 tab-previous
 
-scroll-up
-scroll-down
-scroll-left
-scroll-right
+scroll-up ✅
+scroll-down ✅
+scroll-left ✅
+scroll-right ✅
 
-volume-up
-volume-down
+volume-up ✅
+volume-down ✅
 
-drag-drop
-screen-shot
-sleep-mode
+drag ✅
+drop ✅
+screen-shot ✅
+sleep-mode ✅
 """
 
 from pathlib import Path
@@ -40,7 +41,7 @@ import re
 import cv2
 
 TESTER_NAME = "marwan"
-GESTURE_NAME = "scroll-left"
+GESTURE_NAME = "forward-button"
 
 
 WINDOW_NAME = "Camera Recorder"
