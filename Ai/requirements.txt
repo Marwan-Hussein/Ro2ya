@@ -2,3 +2,6 @@ opencv-python
 onnxruntime
 rtmlib
 mediapipe
+torchinfo
+numpy
+pandas
